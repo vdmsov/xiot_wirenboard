@@ -8,23 +8,35 @@
 from threading import Thread
 import time
 
-
 class fStart:
-
+	
+	id_number = None
 	in1 = False
-	link1 = None
+	link1 = False
+
+
+	def set_in1(self, value):
+		self.in1 = value
 
 	def set_link1(self):
-		fStart.link1 = 'start'
-		print 'fStart: link1 = \'start\''
+		if (self.in1 == True):
+			self.link1 = True
+		else:
+			self.link1 = False
+		
+		#print '\n'
+		#print 'ID:', self.id_number, 'fStart: in1 = ', self.in1
+		#print 'ID:', self.id_number, 'fStart: link1 = ', self.link1
+
 
 	def get_in1(self):
-		while (self.in1 == False):
-			time.sleep(0.5)
-		print 'fStart: in1 = True'
-		self.set_link1()
+		while (True):
+			time.sleep(1)			
+			self.set_link1()
 
-	def __init__(self):
+
+	def __init__(self, id_number):
+		self.id_number = id_number
 		thr = Thread(target = self.get_in1)
 		thr.start()
 		print 'fStart: Expecting starting command on in1 input ("True" is START)'
