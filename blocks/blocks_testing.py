@@ -50,30 +50,27 @@ def main_threding():
 		time.sleep(2)
 		i = i + 1
 	
-		if i == 3:
+		if i == 2:
 			id0.set_in1(True)
 	
-		if i == 10:
-			id0.set_in1(False)
-		
 			
-		id1.set_in1(id0.link1)
-		log_print(id0_name, id0.id_number, id1_name, id1.id_number, id0.link1)
+		id1.set_in1(id0.out1)
+		log_print(id0_name, id0.id_number, id1_name, id1.id_number, id0.out1)
 	
-		id2.set_in1(id0.link1)
-		log_print(id0_name, id0.id_number, id2_name, id2.id_number, id0.link1)
+		id2.set_in1(id0.out1)
+		log_print(id0_name, id0.id_number, id2_name, id2.id_number, id0.out1)
 	
 		id1.set_val1(i)
-		id1.set_link1()
+		id1.set_out1()
 	
-		id3.set_val1('topic_id1_fval')
-		id3.set_in1(id1.link1)
+		id3.set_val1('devices/wb-adc/controls/A1')
+		id3.set_in1(id1.out1)
 		id3.publisher()
-		log_print(id1_name, id1.id_number, id3_name, id3.id_number, id1.link1)
+		log_print(id1_name, id1.id_number, id3_name, id3.id_number, id1.out1)
 
 		id2.set_val1(i*10)
-		id2.set_link1()
-		log_print(id2_name, id2.id_number, none_name, 'None', id2.link1)
+		id2.set_out1()
+		log_print(id2_name, id2.id_number, none_name, 'None', id2.out1)
 
 
 thr = Thread(target = main_threding)

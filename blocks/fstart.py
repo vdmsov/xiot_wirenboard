@@ -12,27 +12,32 @@ class fStart:
 	
 	id_number = None
 	in1 = False
-	link1 = False
+	out1 = False
 
 
 	def set_in1(self, value):
 		self.in1 = value
 
-	def set_link1(self):
+	def set_out1(self):
 		if (self.in1 == True):
-			self.link1 = True
+			self.out1 = True
 		else:
-			self.link1 = False
-		
+			self.out1 = False
+
+
 		#print '\n'
-		#print 'ID:', self.id_number, 'fStart: in1 = ', self.in1
-		#print 'ID:', self.id_number, 'fStart: link1 = ', self.link1
+		#print '*'*50
+		#print 'Name:', 'fStart'
+		#print 'ID:',   self.id_number
+		#print 'in1:',  self.in1
+		#print 'out1:', self.out1
+		#print '*'*50
 
 
 	def get_in1(self):
 		while (True):
 			time.sleep(1)			
-			self.set_link1()
+			self.set_out1()
 
 
 	def __init__(self, id_number):
